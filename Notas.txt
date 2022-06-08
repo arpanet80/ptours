@@ -1,0 +1,65 @@
+ERRORES
+comendarios_destinos
+comendarios_paquetes
+habitacions
+image_menu_restaurants
+image_restaurants
+//////////////////
+
+php artisan make:factory ProfessionFactory
+php artisan db:seed
+
+php artisan:fresh --seed
+
+ SQLSTATE[HY000]: General error: 1005 Can't create table `ptours`.`comendarios_destinos` (errno: 150 "Foreign key constraint is incorrectly formed") 
+(SQL: alter table `comendarios_destinos` add constraint `comendarios_destinos_destino_id_foreign` foreign key (`destino_id`) references `destinos` (`i
+
+
+SQLSTATE[HY000]: General error: 1005 Can't create table `ptours`.`comendarios_paquetes` (errno: 150 "Foreign key constraint is incorrectly formed") 
+(SQL: alter table `comendarios_paquetes` add constraint `comendarios_paquetes_paquete_id_foreign` foreign key (`paquete_id`) references `paquetes` (`id`))
+
+SQLSTATE[HY000]: General error: 1005 Can't create table `ptours`.`habitacions` (errno: 150 "Foreign key constraint is incorrectly formed") (SQL: alter table `habitacions` add constraint `habitacions_tipo_habitacion_id_foreign` foreign key (`tipo_habitacion_id`) references `tipo_habitacions` (`id`))
+
+SQLSTATE[HY000]: General error: 1005 Can't create table `ptours`.`image__hotels` (errno: 150 "Foreign key constraint is incorrectly formed") (SQL: alter table `image__hotels` add constraint `image__hotels_habitacion_id_foreign` foreign key (`habitacion_id`) references `habitacions` (`id`))
+
+
+
+
+
+
+https://codeandtuts.com/generate-fake-data-using-laravel-faker/
+
+
+
+
+///////////////////////////////////////
+MIGRACIONES
+////////////////////////////////////////
+
+php artisan make:model Destino -mf
+php artisan make:model ComentariosDestino -mf
+php artisan make:model TipoPaquete -mf
+php artisan make:model Paquete -mf
+php artisan make:model ComentariosPaquete -mf
+php artisan make:model Hotel -mf
+php artisan make:model TipoHabitacion -mf
+php artisan make:model Habitacion -mf
+php artisan make:model ImageHabitacionHotel -mf
+php artisan make:model Restaurant -mf
+php artisan make:model RestaurantMenu -mf
+php artisan make:model ImageMenuRestaurant -mf
+php artisan make:model ImageRestaurant -mf
+php artisan make:model TipoMedia -mf
+php artisan make:model Media -mf
+php artisan make:model Tag -mf
+php artisan make:model Empresa -mf
+php artisan make:model Transporte -mf
+
+php artisan make:migration create_paquete_tag_table
+php artisan make:migration create_hotel_paquete_table
+php artisan make:migration create_paquete_restaurant_table
+php artisan make:migration create_destino_paquete_table
+
+php artisan make:seeder HotelSeeder
+php artisan make:seeder RestaurantSeeder
+php artisan make:seeder UserSeeder
